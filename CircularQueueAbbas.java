@@ -77,19 +77,16 @@ public class CircularQueue<Item> implements Iterable<Item> {
 	public Item peek() {
 		return items[front];
 	}
+	
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 		if (isEmpty())
-			return "[ ]";
+			return "";
 		
-		sb.append("[ ");
 		for (int i = 0, tempFront = front; i < n; i++, tempFront = (front + 1) % capacity) {
-			sb.append(items[tempFront]);
-			if (i != n - 1 )
-				sb.append(", ");
+			sb.append(items[tempFront]).append(" ");
 		}
-		sb.append(" ]");
 		return sb.toString();
 	}
 
